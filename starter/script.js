@@ -48,52 +48,83 @@
 //   },
 // };
 
-//Split and join
-console.log('a+very+nice+string'.split('+'));
-console.log('Juyeon Lee'.split(' '));
+// Use ANY data type, return Any data type, short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
 
-const [firstName, lastName] = 'Juyeon Lee'.split(' ');
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-const newName = ['Mrs', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+//if first value is truthy value, JS doesn't need to look at the second value. It just return the first value
 
-const capitalzeName = function (name) {
-  const names = name.split(' ');
-  const namesUpper = [];
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
-  for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
-  console.log(namesUpper.join(' '));
-};
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
 
-capitalzeName('eva gaelle green');
-capitalzeName('juyeon rosalie lee');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
 
-//Padding
-const message = 'Go to gate 23!';
-console.log(message.padStart(20, '+').padEnd(30, '+'));
-console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+console.log('hello' && 23 && null && 'Jonas');
 
-const maskCreditCard = function (number) {
-  const str = number + '';
-  const last = str.slice(-4);
-  return last.padStart(str.length, '*');
-};
+//it will retrun the first falsey value or the last value if all of them are truthy
 
-console.log(maskCreditCard(12312523432));
+//Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'spinach');
+}
 
-//Repeat
-const message2 = 'Bad weather...All departures Delayed...';
-console.log(message2.repeat(5));
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
 
-const planesInLine = function (n) {
-  console.log(`There are ${n} planes in line ${'3'.repeat(n)}`);
-};
-planesInLine(5);
-planesInLine(3);
-planesInLine(12);
+// //Split and join
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Juyeon Lee'.split(' '));
+
+// const [firstName, lastName] = 'Juyeon Lee'.split(' ');
+
+// const newName = ['Mrs', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
+
+// const capitalzeName = function (name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// };
+
+// capitalzeName('eva gaelle green');
+// capitalzeName('juyeon rosalie lee');
+
+// //Padding
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(20, '+').padEnd(30, '+'));
+// console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
+
+// console.log(maskCreditCard(12312523432));
+
+// //Repeat
+// const message2 = 'Bad weather...All departures Delayed...';
+// console.log(message2.repeat(5));
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${'3'.repeat(n)}`);
+// };
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
 // const airline = 'TAP air Portugal';
 
 // console.log(airline.toLowerCase());
