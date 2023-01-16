@@ -59,8 +59,13 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 //if first value is truthy value, JS doesn't need to look at the second value. It just return the first value
 
 restaurant.numGuests = 0;
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+//Nullish: null and undefined (Not 0 or "")
+//if the first value is null or defined then they return the second value.
+
+const guestCorrect = restaurant.numGuests ?? 10;
 
 console.log(0 && 'Jonas');
 console.log(7 && 'Jonas');
