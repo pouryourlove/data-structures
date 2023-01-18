@@ -48,38 +48,69 @@
 //   },
 // };
 
-// Use ANY data type, return Any data type, short-circuiting
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+  numGuests: 0,
+};
 
-//if first value is truthy value, JS doesn't need to look at the second value. It just return the first value
+const rest2 = {
+  name: 'La Pizza',
+  owner: 'Giovanni Rossi',
+};
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+//OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
 
-//Nullish: null and undefined (Not 0 or "")
-//if the first value is null or defined then they return the second value.
+//nullish assignment operator(null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
 
-const guestCorrect = restaurant.numGuests ?? 10;
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
 
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
+console.log(rest1);
+console.log(rest2);
 
-console.log('hello' && 23 && null && 'Jonas');
+////The Nullish Coalescing Operator/////
+// // Use ANY data type, return Any data type, short-circuiting
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-//it will retrun the first falsey value or the last value if all of them are truthy
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-//Practical example
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushroom', 'spinach');
-}
+// //if first value is truthy value, JS doesn't need to look at the second value. It just return the first value
 
-restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// //Nullish: null and undefined (Not 0 or "")
+// //if the first value is null or defined then they return the second value.
+
+// const guestCorrect = restaurant.numGuests ?? 10;
+
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+
+// console.log('hello' && 23 && null && 'Jonas');
+
+// //it will retrun the first falsey value or the last value if all of them are truthy
+
+// //Practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushroom', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
 
 // //Split and join
 // console.log('a+very+nice+string'.split('+'));
