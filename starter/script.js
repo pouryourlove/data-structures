@@ -48,29 +48,63 @@ const restaurant = {
   },
 };
 
-//Property NAMES
-const properties = Object.keys(openingHours);
-console.log(properties);
+///////////Sets/////////////////
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
 
-let openStr = `we are open on ${properties.length} days: `;
+console.log(new Set('Julia'));
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
 
-for (const day of properties) {
-  openStr += `${day},`;
-}
-console.log(openStr);
+for (const order of ordersSet) console.log(order);
 
-//Property VALUES
-const values = Object.values(openingHours);
-console.log(values);
+//Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
 
-//Entire object
-const entries = Object.entries(openingHours);
-// console.log(entries);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+console.log(new Set('julialee').size);
 
-//[key, value]
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+////////////Looping Objects////////////////////
+// //Property NAMES
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `we are open on ${properties.length} days: `;
+
+// for (const day of properties) {
+//   openStr += `${day},`;
+// }
+// console.log(openStr);
+
+// //Property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// //Entire object
+// const entries = Object.entries(openingHours);
+// // console.log(entries);
+
+// //[key, value]
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
 
 //OPTIONAL CHANING
 
